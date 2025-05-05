@@ -1,0 +1,24 @@
+[project]
+name = "treet-ps"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "gitmanntoo", email = "gitmanntoo@proton.me" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "magika>=0.6.2",
+    "openpyxl>=3.1.5",
+    "pandas>=2.2.3",
+    "pydantic>=2.11.4",
+    "pyyaml>=6.0.2",
+    "typer>=0.15.3",
+]
+
+[project.scripts]
+treet-ps = "treet_ps:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
