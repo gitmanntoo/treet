@@ -1,5 +1,5 @@
 [project]
-name = "treet-ps"
+name = "treet"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -17,7 +17,7 @@ dependencies = [
 ]
 
 [project.scripts]
-treet-ps = "treet_ps:main"
+treet = "treet:app"
 
 [build-system]
 requires = ["hatchling"]

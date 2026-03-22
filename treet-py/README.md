@@ -1,4 +1,4 @@
-# treet-ps
+# treet
 
 A CLI utility for scanning and analyzing directory trees. It recursively walks a directory, collects file metadata, optionally identifies file types via ML, and outputs results in multiple formats.
 
@@ -13,7 +13,7 @@ uv sync
 ## Usage
 
 ```bash
-uv run treet-ps <root_directory> [options]
+uv run treet <root_directory> [options]
 ```
 
 ### Options
@@ -42,13 +42,13 @@ Output format is determined by the file extension passed to `--output`:
 
 ```bash
 # Scan a directory and print a tree (depth 2)
-uv run treet-ps /path/to/dir --tree 2
+uv run treet /path/to/dir --tree 2
 
 # Collect stat metadata and write to JSON
-uv run treet-ps /path/to/dir --stat --output results.json
+uv run treet /path/to/dir --stat --output results.json
 
 # Full scan with ML file type detection, pretty output to Excel
-uv run treet-ps /path/to/dir --stat --magika --pretty --output results.xlsx
+uv run treet /path/to/dir --stat --magika --pretty --output results.xlsx
 ```
 
 ## Output Fields
