@@ -385,7 +385,7 @@ wheels = [
 ]
 
 [[package]]
-name = "treet-ps"
+name = "treet"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [

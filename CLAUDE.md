@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-**treet-ps** is a file tree scanning and analysis CLI utility. It recursively scans directories, collects file metadata (size, timestamps, permissions, ownership), optionally identifies file types via ML (Magika), and outputs results in JSON, JSONL, YAML, CSV, or XLSX formats. It can also render a visual directory tree.
+**treet** is a file tree scanning and analysis CLI utility. It recursively scans directories, collects file metadata (size, timestamps, permissions, ownership), optionally identifies file types via ML (Magika), and outputs results in JSON, JSONL, YAML, CSV, or XLSX formats. It can also render a visual directory tree.
 
 ## Commands
 
@@ -15,7 +15,7 @@ This project uses [uv](https://docs.astral.sh/uv/) as the package manager.
 uv sync
 
 # Run the CLI
-uv run treet-ps <root_directory> [options]
+uv run treet <root_directory> [options]
 
 # Build the package
 uv build
@@ -27,7 +27,7 @@ There is no test suite or linting configuration at this time.
 
 ## Architecture
 
-All core logic lives in `treet-py/treet.py` (~576 lines). The package entry point is `treet-py/src/treet_ps/__init__.py`, which imports and calls `main()` from `treet.py`.
+All core logic lives in `treet-py/src/treet/__init__.py`. The console script entry point is `treet:app` (Typer `app`); `main` is the Typer command that runs the scan pipeline.
 
 Key classes:
 - `Config` — dataclass holding the root path and all feature flags
@@ -41,6 +41,6 @@ Key functions:
 - `concurrent_map()` — thin wrapper around `ThreadPoolExecutor`
 - `do_output()` — dispatches to format-specific writers (JSON, JSONL, YAML, CSV, XLSX via pandas/openpyxl)
 - `do_tree()` — renders Rich tree to console
-- `main()` — Typer CLI entry point
+- `app` / `main()` — Typer application and command entry
 
 Platform notes: `FileInfo` handles macOS/Windows-specific stat fields (`st_birthtime`, `st_ctime` semantics differ by OS).
